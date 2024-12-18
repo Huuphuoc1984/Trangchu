@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh Điều Hướng với iframe</title>
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        /* Nội dung chính */
+        .main-container {
+            width: 100%;
+            height: calc(100% - 60px); /* Trừ đi chiều cao footer */
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Footer điều hướng */
+        .footer {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background-color: #333;
+            color: #fff;
+            z-index: 1000;
+        }
+
+        .footer-item {
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .footer-item img {
+            width: 28px;
+            height: 28px;
+            filter: invert(1);
+        }
+
+        .footer-item span {
+            display: block;
+            margin-top: 5px;
+            font-size: 12px;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <!-- Vùng hiển thị iframe -->
+    <div class="main-container">
+        <iframe id="contentFrame" src="https://huuphuoc1984.github.io/appchungkhoan/"></iframe>
+    </div>
+
+    <!-- Footer Điều Hướng -->
+    <div class="footer">
+        <!-- Trang chủ -->
+        <div class="footer-item" onclick="loadPage('')">
+            <img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="Trang Chủ">
+            <span>Trang chủ</span>
+        </div>
+        <!-- Sức mạnh ngành -->
+        <div class="footer-item" onclick="loadPage('https://huuphuoc1984.github.io/appchungkhoan/')">
+            <img src="https://i.pinimg.com/736x/96/b4/24/96b424bc757e3834b3387081b3248c01.jpg" alt="Sức mạnh ngành">
+            <span>Sức mạnh ngành</span>
+        </div>
+        <!-- Vùng Đáy -->
+        <div class="footer-item" onclick="loadPage('https://huuphuoc1984.github.io/tinhieu/')">
+            <img src="https://i.pinimg.com/736x/cc/81/11/cc8111849d3e32b3d2db029a28d835e8.jpg" alt="Bắt Đáy">
+            <span>Bắt Đáy</span>
+        </div>
+        <!-- Bắt đáy -->
+        <div class="footer-item" onclick="loadPage('https://huuphuoc1984.github.io/vungday/')">
+        <img src="https://i.pinimg.com/736x/1b/36/10/1b36108e374f8ab5f040de3edcaaaa4a.jpg" alt="Vùng đáy">
+            
+<span>Vùng đáy</span>
+        </div>
+        <!-- Menu -->
+        <div class="footer-item" onclick="loadPage('https://example.com/menu')">
+            <img src="https://cdn-icons-png.flaticon.com/512/747/747310.png" alt="Menu">
+            <span>Menu</span>
+        </div>
+    </div>
+
+    <!-- JavaScript để load trang vào iframe -->
+    <script>
+        function loadPage(url) {
+            const iframe = document.getElementById('contentFrame');
+            iframe.src = url; // Cập nhật URL vào iframe
+        }
+    </script>
+</body>
+</html>
